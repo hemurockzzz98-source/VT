@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine?</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      font-family: Arial, sans-serif;
+      background:#ffe6ee;
+      text-align:center;
+      overflow:hidden;
+    }
+    h1{ color:#c4003a; margin:0 20px 12px; }
+    h2{ color:#444; font-weight:normal; margin-bottom:22px; }
+    .wrap{ position:relative; width:100%; height:260px; }
+    .btn{
+      padding:14px 28px;
+      font-size:18px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    #yes{
+      background:#ff2e63;
+      color:white;
+    }
+    #no{
+      position:absolute;
+      left:55%;
+      top:120px;
+      background:white;
+      color:#ff2e63;
+      border:2px solid #ff2e63;
+    }
+    .hint{ color:#444; font-size:14px; opacity:0.8; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Hey Lohitha Uma Devi (Luma) 💖</h1>
+  <h2>— from Hemanth</h2>
+
+  <h1>Will you be my Valentine? 💘</h1>
+
+  <div class="wrap">
+    <button class="btn" id="yes">YES 😍</button>
+    <button class="btn" id="no">NO 😅</button>
+  </div>
+
+  <div class="hint">Try clicking “NO” 😉</div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    function moveNoButton() {
+      const padding = 10;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const x = Math.floor(Math.random() * Math.max(maxX, 1));
+      const y = Math.floor(Math.random() * Math.max(maxY, 1));
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveNoButton);
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1>Yayyyy 💖💖💖</h1>
+        <p style="font-size:22px;color:#333;margin-top:10px;">
+          Lohitha Uma Devi (Luma) & Hemanth ❤️
+        </p>
+        <p style="font-size:16px;margin-top:8px;">
+          This just made my day 😌
+        </p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
